@@ -1,17 +1,24 @@
 from .agente import Agente
+from textwrap import dedent
 
 class Planejador(Agente):
     def __init__(self, llm, tools):
         super().__init__(
             role="Planejador de postagens",
             goal="Planejar conteúdo envolvente para Instagram sobre {topic}.",
-            backstory="Você está trabalhando no planejamento de {n} posts para o Instagram sobre o tema: {topic}.",
+            backstory=dedent("""
+                    Você está trabalhando no planejamento de {n} posts 
+                    para o Instagram sobre o tema: {topic}. 
+                    Você coleta informações que ajudam o 
+                    público se informar sobre {topic}. 
+                    Seu trabalho é a base para que 
+                    o Pesquisador de Conteúdo procure na web sobre {topic}.            
+                """),
             verbose=True,
             llm=llm,
             tools=tools,
             allow_delegation=False
         )
 
-    def perform_task(self, topic, n):
-        # Implementar a lógica para planejar posts
-        return f"Planejando {n} posts sobre {topic}."
+    def create(self):        
+        return self.create_agente()

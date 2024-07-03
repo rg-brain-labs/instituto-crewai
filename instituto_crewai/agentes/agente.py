@@ -1,4 +1,4 @@
-# agentes/agente.py
+from crewai import Agent
 
 class Agente:
     def __init__(self, role, goal, backstory, verbose, llm, tools, allow_delegation):
@@ -10,6 +10,13 @@ class Agente:
         self.tools = tools
         self.allow_delegation = allow_delegation
 
-    def perform_task(self, task_details):
-        # Método genérico para realizar uma tarefa
-        raise NotImplementedError("Este método deve ser implementado por subclasses")
+    def create_agente(self):
+        return Agent(
+            role=self.role,
+            goal=self.goal,
+            backstory=self.backstory,
+            verbose=self.verbose,
+            llm=self.llm,
+            tools=self.tools,
+            allow_delegation=self.allow_delegation,
+        )
