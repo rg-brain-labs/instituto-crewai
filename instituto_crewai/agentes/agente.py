@@ -17,6 +17,6 @@ class Agente:
             backstory=self.backstory,
             verbose=self.verbose,
             llm=self.llm,
-            tools=self.tools,
+            tools=None,
             allow_delegation=self.allow_delegation,
         )

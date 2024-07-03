@@ -17,6 +17,3 @@ class PlanoTask(Task):
                     com um esboço, análise do público, palavras-chave de SEO e recursos.
             """
         super().__init__(description, expected_output, agent, verbose)
-
-    def create(self):
-        return self.create_task()

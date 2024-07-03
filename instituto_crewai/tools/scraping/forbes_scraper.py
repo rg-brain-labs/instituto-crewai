@@ -1,8 +1,5 @@
-from .scrape_website_tool import ScrapeWebsiteTool
+from .website_scraper_tool import WebsiteScreperTool
 
-class ForbesScraper(ScrapeWebsiteTool):
+class ForbesScraper(WebsiteScreperTool):
     def __init__(self):
         super().__init__("https://www.forbes.com/ai/")
-
-    def get_headlines(self):        
-        return self.scrape

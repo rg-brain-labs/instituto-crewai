@@ -18,6 +18,3 @@ class EscritaTask(Task):
                 para o tópico {topic}.
             """
         super().__init__(description, expected_output, agent, verbose)
-
-    def create(self):
-        return self.create_task()
