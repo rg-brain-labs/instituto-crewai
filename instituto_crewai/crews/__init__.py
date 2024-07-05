@@ -1,1 +1,1 @@
-from .instragram_crew import InstagramCrew
+from .instagram_crew import InstagramCrew

@@ -1,28 +1,32 @@
 from .llm import LLM
 from enum import Enum
 
-class GeminiModels(Enum):
-    GEMINI_1_5_PRO = "gemini-1.5-pro"
-    GEMINI_1_5_FLASH = "gemini-1.5-flash"
-    GEMINI_1_0_PRO = "gemini-pro"
+class GroqModels(Enum):
+    GEMMA_1_7 = "gemma-7b-it"
+    GEMMA_2_9 = "gemma2-9b-it"
+    LLMA3_70 = "llama3-70b-8192"
+    LLMA3_8 = "llama3-8b-8192"
+    MIXTRAL_8_7 = "mixtral-8x7b-32768"
     
     @property
     def max_rpm(self):
         max_rpm_values = {
-            "gemini-1.5-pro": 2,
-            "gemini-1.5-flash": 15,
-            "gemini-pro": 15
+            "gemma-7b-it": 30,
+            "gemma2-9b-it": 30,
+            "llama3-70b-8192": 30,
+            "llama3-8b-8192": 30,
+            "mixtral-8x7b-32768": 30
         }
         return max_rpm_values[self.value]
     
-class Gemini(LLM):
+class Groq(LLM):
     def __init__(self, modelo):
         super().__init__(modelo)        
 
     def create_instance(self):
-        from langchain_google_genai import ChatGoogleGenerativeAI
+        from langchain_groq import ChatGroq
         
-        return ChatGoogleGenerativeAI(
+        return ChatGroq(
             model=self.modelo.value,
             verbose=True,
             temperature=0.5,
