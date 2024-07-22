@@ -16,6 +16,7 @@ pyyaml = "^6.0.1"
 langchain-huggingface = "^0.0.3"
 langchain-groq = "0.1.5"
 langchain_community ==0.0.29
+ipykernel = "^6.29.5"
 
 
 [build-system]
