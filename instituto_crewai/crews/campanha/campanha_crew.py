@@ -1,23 +1,40 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools.tools.scrape_website_tool.scrape_website_tool import ScrapeWebsiteTool
+from crewai_tools import BaseTool
+from crewai_tools import DirectoryReadTool, FileReadTool
 from llms import Gemini, Groq, GeminiModels, GroqModels
 from dotenv import load_dotenv
 from pathlib import Path
+import json
 
 # Carrega variáveis de ambiente
 dotenv_path = Path(__file__).parent.parent / 'config' / '.env'
 load_dotenv(dotenv_path)
 
-ainew = ScrapeWebsiteTool(
-    website_url="https://www.artificialintelligence-news.com/"
-)
+class SearchTool(BaseTool):
+    name: str = ("Ferramenta para busca de sites")
+    description: str = ("Retorna um JSON com os sites das empresas.")
+    
+    def _run(self) -> str:
+        return json.dumps({
+            "results": [
+                {
+                    "description": "A AetherTech é uma empresa líder em tecnologia de energia espacial, desenvolvendo soluções sustentáveis e inovadoras para o futuro.  A empresa está construindo uma infraestrutura de energia solar orbital,  oferecendo  uma  fonte limpa e ininterrupta de energia  para  o  planeta.",
+                    "url": "http://127.0.0.1:5000/aether-tech"
+                },
+                {
+                    "description": "Solaris Ventures está  revolucionando  o  turismo  espacial  com  o  primeiro  hotel  espacial  de  luxo  do  mundo,  oferecendo  experiências  inesquecíveis  para  quem  busca  aventuras  interestelares  em  um  ambiente  único  e  luxuoso.",
+                    "url": "http://127.0.0.1:5000/solaris-ventures"
+                }
+            ]
+        })
 
-forbes = ScrapeWebsiteTool(
-    website_url="https://www.forbes.com/ai/"
-)
-
-
+directory_read_tool = DirectoryReadTool(directory='./instrucoes')
+file_read_tool = FileReadTool()
+search_tool = SearchTool()
+scrape_tool = ScrapeWebsiteTool()
+scrape_zenith_voyages = ScrapeWebsiteTool(website_url='http://127.0.0.1:5000/zenith-voyages')
 
 @CrewBase
 class CampanhaCrew():
@@ -94,7 +111,8 @@ class CampanhaCrew():
                 "Esta tarefa é crucial para adaptar "
                 "nossa estratégia de engajamento de forma eficaz.\n"
                 "Não faça suposições e "
-                "use apenas informações das quais você tem absoluta certeza."
+                "use apenas informações das quais você tem absoluta certeza.\n"
+                "Para saber mais sobre a empresa em que você atua pode usar a ferramenta scrape_zenith_voyages"
             ),
             expected_output=(
                 "Um relatório abrangente sobre {lead_name}, "
@@ -104,7 +122,7 @@ class CampanhaCrew():
                 "nossas soluções podem fornecer valor "
                 "e sugira estratégias de engajamento personalizadas."
             ),
-            tools=[directory_read_tool, file_read_tool, search_tool],
+            tools=[directory_read_tool, file_read_tool, search_tool, scrape_zenith_voyages],
             agent=self.representante_vendas,
             verbose=2,
         )
@@ -137,7 +155,7 @@ class CampanhaCrew():
                 "Garanta que o tom seja envolvente, profissional "
                 "e alinhado com a identidade corporativa de {lead_name}."
             ),
-            tools=[sentiment_analysis_tool, search_tool],
+            tools=[search_tool],
             agent=self.lider_vendas,
             verbose=2
         )
