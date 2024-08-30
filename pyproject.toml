@@ -6,7 +6,7 @@ authors = ["rodrigo.goncalves"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.11,<=3.13"
+python = ">=3.10,<=3.13"
 crewai = {extras = ["tools"], version = "^0.35.7"}
 python-dotenv = "^1.0.1"
 textwrap3 = "^0.9.2"
