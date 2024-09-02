@@ -16,14 +16,14 @@ Um pipeline no crewAI representa um fluxo de trabalho estruturado que permite a 
 **Exemplo de estrutura de pipeline:**
 
 ```cmd
-equipe1 >> [equipe2, equipe3] >> equipe4
+crew1 >> [crew2, crew3] >> crew4
 ```
 
 Isso representa um pipeline com três estágios:
 
-* Um estágio sequencial (equipe1)
-* Um estágio paralelo com duas ramificações (equipe2 e equipe3 executadas simultaneamente)
-* Outro estágio sequencial (equipe4)
+* Um estágio sequencial (crew1)
+* Um estágio paralelo com duas ramificações (crew2 e crew3 executadas simultaneamente)
+* Outro estágio sequencial (crew4)
 
 Cada entrada cria sua própria execução, fluindo por todos os estágios do pipeline. Várias execuções podem ser processadas simultaneamente, cada uma seguindo a estrutura de pipeline definida.
 
@@ -31,11 +31,11 @@ Cada entrada cria sua própria execução, fluindo por todos os estágios do pip
 
 | Atributo | Descrição |
 |---|---|
-| stages | Uma lista de equipes, listas de equipes ou roteadores representando os estágios a serem executados em sequência. |
+| stages | Uma lista de **crews** ou **routers** representando os estágios a serem executados em sequência. |
 
 **Criando um Pipeline:**
 
-Ao criar um pipeline, você define uma série de estágios, cada um consistindo em uma única equipe ou uma lista de equipes para execução paralela. O pipeline garante que cada estágio seja executado em ordem, com a saída de um estágio sendo alimentada para o próximo.
+Ao criar um pipeline, você define uma série de estágios, cada um consistindo em uma única crew ou uma lista de crews para execução paralela. O pipeline garante que cada estágio seja executado em ordem, com a saída de um estágio sendo alimentada para o próximo.
 
 **Exemplo: Montando um Pipeline**
 
