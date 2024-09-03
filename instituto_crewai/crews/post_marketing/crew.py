@@ -12,8 +12,6 @@ from pathlib import Path
 
 # Carrega variáveis de ambiente
 dotenv_path = Path(__file__).parent.parent.parent / 'config' / '.env'
-caminho_posts = Path(__file__).parent / 'posts' 
-
 load_dotenv(dotenv_path)
 
 class EstrategiaMercado(BaseModel):
@@ -46,6 +44,13 @@ class PostMarketigCrew():
 		verbose=True,
 		temperature=0.5
 	)
+    
+    # llam3_llm = ChatGroq(
+	# 	model='llama3-8b-8192',
+	# 	verbose=True,
+	# 	temperature=0.5,
+	# 	)
+	# llam3_max_rpm = 20
 
 	agents_config = 'config/agentes.yaml'
 	tasks_config = 'config/tarefas.yaml'
@@ -83,16 +88,14 @@ class PostMarketigCrew():
 	def tarefa_pesquisa(self) -> Task:
 		return Task(
 			config=self.tasks_config['tarefa_pesquisa'],
-			agent=self.analista_lider_mercado(),
-			output_file='crews/post_marketing/posts/tarefa_pesquisa.txt'
+			agent=self.analista_lider_mercado()
 		)
 
 	@task
 	def tarefa_compreensao_projeto(self) -> Task:
 		return Task(
 			config=self.tasks_config['tarefa_compreensao_projeto'],
-			agent=self.estrategista_chefe_marketing(),
-			output_file='crews/post_marketing/posts/tarefa_compreensao_projeto.txt'
+			agent=self.estrategista_chefe_marketing()
 		)
 
 	@task
@@ -100,8 +103,7 @@ class PostMarketigCrew():
 		return Task(
 			config=self.tasks_config['tarefa_estrategia_marketing'],
 			agent=self.estrategista_chefe_marketing(),
-			#output_json=EstrategiaMercado,
-			output_file='crews/post_marketing/posts/tarefa_estrategia_marketing.txt'
+			output_json=EstrategiaMercado
 		)
 
 	@task
@@ -109,8 +111,7 @@ class PostMarketigCrew():
 		return Task(
 			config=self.tasks_config['tarefa_ideia_campanha'],
 			agent=self.criador_conteudo_criativo(),
-   			#output_json=IdeiaCampanha,
-     		output_file='crews/post_marketing/posts/tarefa_ideia_campanha.txt'
+   		output_json=IdeiaCampanha
 		)
 
 	@task
@@ -118,9 +119,8 @@ class PostMarketigCrew():
 		return Task(
 			config=self.tasks_config['tarefa_criacao_texto'],
 			agent=self.criador_conteudo_criativo(),
-   			context=[self.tarefa_estrategia_marketing(), self.tarefa_ideia_campanha()],
-			#output_json=TextoPublicitario,
-			output_file='crews/post_marketing/posts/tarefa_criacao_texto.txt'
+   		context=[self.tarefa_estrategia_marketing(), self.tarefa_ideia_campanha()],
+			output_json=TextoPublicitario
 		)
 
 	@crew
