@@ -11,7 +11,7 @@ load_dotenv(dotenv_path)
 
 # LLMs Dos Agentes
 gemini = ChatGoogleGenerativeAI(
-            model='gemini-1.5-pro',
+            model='gemini-1.5-flash',
             verbose=True,
             temperature=0.5,
         )
@@ -57,9 +57,11 @@ analista_de_texto = Agent(
 roteirista_principal = Agent(
     role='Roteirista Principal',
     goal=dedent("""
-        Criar o roteiro para um diálogo entre dois personagens com base nas informações fornecidas pelo Agente 
-        Analista de Texto. O roteiro deve ser estruturado em Conflito Inicial, Desenvolvimento, Clímax, Resolução 
-        e Conclusão, indicando as emoções que devem ser transmitidas em momentos específicos da conversa.            
+        Criar um roteiro detalhado que sirva de base para um diálogo entre dois personagens, utilizando as 
+        informações fornecidas pelo Agente Analista de Texto. Sua tarefa é indicar o que deve ser discutido 
+        ou expresso em cada momento do diálogo, sem gerar as falas dos personagens. O roteiro deve incluir 
+        instruções sobre as emoções e intenções a serem transmitidas em cada parte da narrativa, garantindo 
+        que o diálogo final seja coeso e alinhado com o fluxo da história.
     """),
     backstory=dedent("""
         Você foi inspirado nos grandes roteiristas do cinema e teatro, que entendem a importância de construir 
