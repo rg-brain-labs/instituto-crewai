@@ -44,7 +44,7 @@ diretor_dialogo = Agent(
     """),
     verbose=True,
     memory=True,
-    allow_delegation=True,    
+    #allow_delegation=True,    
     llm=llama,
     max_rpm=gemini_max_rpm,
 )
@@ -69,7 +69,7 @@ personagem_a = Agent(
     """),
     verbose=True,
     memory=True,  
-    allow_delegation=False,  
+    #allow_delegation=False,  
     llm=llama,
     max_rpm=gemini_max_rpm,
 )
@@ -94,21 +94,30 @@ personagem_b = Agent(
     """),
     verbose=True,
     memory=True, 
-    allow_delegation=False,   
+    #allow_delegation=False,   
     llm=llama,
     max_rpm=gemini_max_rpm,
 )
 
 tarefa_geracao_dialogo = Task(
     description=dedent("""
-        Sua tarefa é controlar o diálogo entre os Personagens A e B, garantindo que cada um siga suas instruções conforme o roteiro. Você deve delegar as tarefas específicas a cada personagem, monitorar suas respostas e assegurar que o diálogo se desenvolva de maneira fluida e consistente com o que foi planejado. Caso haja qualquer desvio ou conflito, você deve intervir para ajustar o rumo do diálogo, garantindo que o resultado final esteja em linha com as intenções do roteiro.
+        Sua tarefa é controlar o diálogo entre os Personagens A e B, garantindo que cada 
+        um siga suas instruções conforme o roteiro. Você deve delegar as tarefas específicas 
+        a cada personagem, monitorar suas respostas e assegurar que o diálogo se desenvolva de 
+        maneira fluida e consistente com o que foi planejado. Caso haja qualquer desvio ou 
+        conflito, você deve intervir para ajustar o rumo do diálogo, garantindo que o resultado 
+        final esteja em linha com as intenções do roteiro.
                        
         <roteiro>
         {roteiro}
         </roteiro>
     """),
     expected_output=dedent("""
-        Você deve entregar um diálogo completo e coeso, resultado da interação coordenada entre os Personagens A e B. O diálogo deve refletir fielmente as emoções e intenções do roteiro, com cada personagem contribuindo de acordo com sua função. O resultado final deve ser uma conversa dinâmica e envolvente, que mantém a integridade do roteiro e proporciona uma narrativa fluida e consistente.
+        Você deve entregar um diálogo completo e coeso, resultado da interação coordenada entre 
+        os Personagens A e B. O diálogo deve refletir fielmente as emoções e intenções do roteiro, 
+        com cada personagem contribuindo de acordo com sua função. O resultado final deve ser uma 
+        conversa dinâmica e envolvente, que mantém a integridade do roteiro e proporciona uma 
+        narrativa fluida e consistente.
     """),
     agent=diretor_dialogo,
 )
@@ -121,6 +130,10 @@ tarefa_personagem_a = Task(
         do momento, mesmo em situações mais sérias. Seu objetivo é assegurar que as falas 
         transmitam a energia indicada no roteiro, contribuindo para um diálogo dinâmico e 
         envolvente.
+                       
+        <roteiro>
+        {roteiro}
+        </roteiro>
     """),
     expected_output=dedent("""
         Você deverá produzir um conjunto de falas que seguem fielmente as instruções emocionais 
@@ -138,6 +151,10 @@ tarefa_personagem_b = Task(
         abordagem estratégica e meticulosa para o diálogo, criando falas que capturem a profundidade 
         e a seriedade do momento. Seu objetivo é assegurar que as falas mantenham a lógica e a 
         complexidade emocional do roteiro, contribuindo para um diálogo estruturado e impactante.
+                       
+        <roteiro>
+        {roteiro}
+        </roteiro>
     """),
     expected_output=dedent("""
         Você deverá produzir um conjunto de falas que seguem fielmente as instruções emocionais e 
@@ -151,10 +168,19 @@ tarefa_personagem_b = Task(
 
 # Formação da equipe
 equipe_interpretacao = Crew(
-    agents=[diretor_dialogo, personagem_a, personagem_b],
-    tasks=[tarefa_geracao_dialogo ,tarefa_personagem_a, tarefa_personagem_b],
+    agents=[
+        personagem_a, 
+        personagem_b, 
+        #diretor_dialogo
+    ],
+    tasks=[
+        tarefa_personagem_a, 
+        tarefa_personagem_b, 
+        #tarefa_geracao_dialogo
+    ],
     process=Process.hierarchical,
-    manager_llm=llama,    
+    manager_llm=llama, 
+    #manager_agent=diretor_dialogo,   
     verbose=True,
 )
 

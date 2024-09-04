@@ -1,27 +1,28 @@
-**Conflito Inicial**
+Conflito Inicial
+Personagem A: "Como você pôde, Personagem B? Você sabe que eu tenho lutado com a imagem corporal a vida toda, e seus comentários foram como uma facada no coração. Ainda estou tentando processar tudo o que aconteceu, mas sei que não descansarei até ter certeza de que você enfrentará as consequências de seus atos."
 
-Thaís Carla: "I'm still trying to process everything that's happened. I've been dealing with these comments from Danilo Gentili for years, and it's like, why can't he just leave me alone? I'm a human being, not a joke. And now, he's being sued for his comments? It's about time someone held him accountable."
+Personagem B: "Sinto muito, Personagem A. Eu não quis te machucar. Eu estava apenas tentando me encaixar e ser aceito, e não percebi o mal que estava causando. Eu sei que cometi um erro e estou disposto a fazer o que for preciso para consertá-lo."
 
-Danilo Gentili: "I don't understand what the big deal is. I was just trying to be funny. I didn't mean to hurt anyone's feelings. And besides, it's not like I said anything that wasn't true. Thaís Carla is a big girl, she can handle a little teasing."
+Desenvolvimento
+Personagem B: "Eu fiz minha pesquisa e sei que as acusações contra mim são infundadas. Eu tenho provas de que você é quem tem manipulado o sistema a seu favor."
 
-**Desenvolvimento**
+Personagem A: "Ah, realmente? Estou tremendo de medo. Traga-o."
 
-Thaís Carla: "A little teasing? You think making fun of someone's appearance is 'just a joke'? That's not funny, Danilo. That's hurtful. And it's not just me, I've seen you make fun of other people too. You think you're above all this, but you're not. We're all human beings, and we all deserve respect."
+Personagem B: "Eu trarei. E quando eu fizer isso, você será o único que ficará parecendo um tolo."
 
-Danilo Gentili: "I'm sorry if I hurt anyone's feelings. I didn't mean to. I was just trying to be funny. But I understand why people might be upset. I'll try to be more considerate in the future."
+Clímax
+Personagem A: "Ei, Personagem B! Eu sei que temos tido algumas desavenças ultimamente, mas eu realmente acho que podemos resolver as coisas. Eu tenho pensado muito sobre isso, e eu encontrei uma solução que eu acho que poderia beneficiar ambos nós. Que tal concordarmos em... (pausa dramática) ...ter uma festa de dança para resolver nossas diferenças?!"
 
-**Clímax**
+Personagem B: "Uma festa de dança? Você está brincando?"
 
-Thaís Carla: "Considerate? That's not enough. You need to take responsibility for your actions. You need to apologize and make amends. And you need to stop making fun of people. It's not funny, and it's not okay."
+Personagem A: "Não, estou totalmente sério! Pense nisso, podemos deixar nossas diferenças de lado e simplesmente nos divertir. Podemos dançar a noite toda e esquecer nossas desavenças. Além disso, será uma ótima maneira de fazer algum exercício e aliviar o estresse. E quem sabe, talvez até venhamos com algumas novas ideias e soluções enquanto estamos nisso!"
 
-Danilo Gentili: "I'm sorry. I'll do better. I promise."
+Resolução
+Personagem A: "Estou feliz que pudemos chegar a um acordo, Personagem B. Eu sei que ambos passamos por muita coisa, mas acho que este é um grande passo em direção à cura e ao avanço. Vamos manter as linhas de comunicação abertas e trabalhar juntos para construir uma comunidade mais inclusiva e acolhedora."
 
-**Resolução**
+Personagem B: "Concordo. Vamos fazer isso."
 
-Thaís Carla: "I want an apology. I want a public apology. And I want you to make a donation to a charity that supports body positivity. That's the least you can do after everything you've done."
+Conclusão
+Personagem A: "Estou tão grato que pudemos encontrar uma maneira de resolver nossas diferenças e seguir em frente. Eu sei que não foi fácil, mas acho que valeu a pena. Vamos continuar trabalhando juntos para criar um mundo onde todos se sintam vistos, ouvidos e valorizados."
 
-Danilo Gentili: "Okay. I'll do it. I'll make a donation and I'll apologize publicly. I promise."
-
-**Conclusão**
-
-Thaís Carla: "I hope this is the start of a new chapter for us. I hope we can move forward and leave this behind us. And I hope that people will learn from this and think twice before making fun of others."
+Personagem B: "Estou com você, Personagem A. Vamos fazer isso."
