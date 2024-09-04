@@ -75,7 +75,7 @@ roteirista_principal = Agent(
     verbose=True,
     memory=True,
     allow_delegation=False,
-    llm=gemini,
+    llm=llama,
     max_rpm=gemini_max_rpm
 )
 
@@ -97,7 +97,7 @@ revisor_de_roteiro = Agent(
     verbose=True,
     memory=True,
     allow_delegation=True,
-    llm=gemini,
+    llm=llama,
     max_rpm=gemini_max_rpm
 )
 
