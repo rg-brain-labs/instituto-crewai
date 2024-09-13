@@ -1,14 +1,15 @@
-from crewai import Agent, Task, Crew, Process
-from pathlib import Path
+# from crewai import Agent, Task, Crew, Process
+# from pathlib import Path
 #from dotenv import load_dotenv
-from langchain_groq import ChatGroq
-from langchain_google_genai import ChatGoogleGenerativeAI
-from textwrap3 import dedent
+# from langchain_groq import ChatGroq
+# from langchain_google_genai import ChatGoogleGenerativeAI
+# from textwrap3 import dedent
 
-from utils import load_dotenv
+from utils.environment import load_dotenv
 
-# Configuração das chaves de API 
-load_dotenv()
+def main():
+    # Configuração das chaves de API 
+    load_dotenv()
 
 # # LLMs Dos Agentes
 # gemini = ChatGoogleGenerativeAI(
@@ -219,3 +220,5 @@ load_dotenv()
 # resultado = equipe_roteiristas.kickoff(inputs={'texto_base': texto_base})
 
 # print(resultado)
+if __name__ == "__main__":
+    main()
