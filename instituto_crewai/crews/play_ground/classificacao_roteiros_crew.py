@@ -1,4 +1,3 @@
-import os
 from crewai import Agent, Task, Crew, Process
 
 # Agente Analista de Estrutura
