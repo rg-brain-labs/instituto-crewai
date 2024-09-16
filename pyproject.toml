@@ -1,9 +1,10 @@
 [tool.poetry]
-name = "instituto-crewai"
+name = "instituto_crewai"
 version = "0.1.0"
 description = ""
 authors = ["rodrigo.goncalves"]
 readme = "README.md"
+packages = [{include = "instituto_crewai", from = "src"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<=3.13"
@@ -19,6 +20,14 @@ langchain_community = "^0.0.29"
 ipykernel = "^6.29.5"
 flask = "^3.0.3"
 duckduckgo-search = "^6.2.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^8.0"
+black = "^23.0"
+isort = "^5.0"
+mypy = "^1.0"
+pydantic = "^2.0"
+pre-commit = "^3.0"
 
 [build-system]
 requires = ["poetry-core"]
