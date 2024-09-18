@@ -1,7 +1,7 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from typing import List
-from agente_config import AgenteConfig
+from .agente_config import AgenteConfig
 
 @CrewBase
 class RoteiristaCrew():
@@ -50,7 +50,7 @@ class RoteiristaCrew():
                 "identificando elementos essenciais como Conflito Inicial, Desenvolvimento, Clímax, Resolução e "
                 "Conclusão. O agente deve garantir que todos os componentes necessários para um roteiro envolvente "
                 "estejam presentes, fornecendo uma base sólida para a construção de diálogos. "
-                f"{self.analista_texto_config["goal"]}"
+                f"{self.analista_texto_config['goal']}"
             ),
             backstory=(
                 "Você foi desenvolvido a partir de algoritmos avançados de processamento de linguagem natural e "
@@ -64,12 +64,12 @@ class RoteiristaCrew():
                 "Como Analista de Texto, você será responsável por garantir que todos os componentes essenciais para "
                 "um roteiro envolvente sejam identificados e organizados, oferecendo uma base sólida para a construção "
                 "de diálogos e narrativas."
-                f"{self.analista_texto_config["backstory"]}"
+                f"{self.analista_texto_config['backstory']}"
             ),
             memory=True,
             allow_delegation=False,
-            verbose=self.analista_texto_config["verbose"],
-            llm=self.analista_texto_config["model_name"],
+            verbose=self.analista_texto_config['verbose'],
+            llm=self.analista_texto_config['model_name'],
             max_rpm=self.max_rpm,
         )
     
@@ -99,7 +99,7 @@ class RoteiristaCrew():
                 "- Conclusão: O fechamento da história, onde todos os pontos principais são amarrados e a narrativa "
                 "é concluída de maneira satisfatória. "
 
-                f"{self.analista_texto_config["description"]}"
+                f"{self.analista_texto_config['description']}"
                 
                 "<texto_base> "
                 "{texto_base} "
@@ -111,12 +111,12 @@ class RoteiristaCrew():
                 "clara, coesa e estruturada de forma a fornecer uma base sólida para a criação de um diálogo ou "
                 "narrativa subsequente. O resultado final deve permitir a fácil identificação dos principais pontos "
                 "da história e a fluidez na transição entre os diferentes elementos do roteiro. "
-                f"{self.analista_texto_config["expected_output"]}"
+                f"{self.analista_texto_config['expected_output']}"
             ),
             agent=self.analista_texto(),
         )
     
-    @Agent
+    @agent
     def roteirista_principal(self) -> Agent:
         return Agent(
             role='Roteirista Principal',
@@ -126,7 +126,7 @@ class RoteiristaCrew():
                 "ou expresso em cada momento do diálogo, sem gerar as falas dos personagens. O roteiro deve incluir "
                 "instruções sobre as emoções e intenções a serem transmitidas em cada parte da narrativa, garantindo "
                 "que o diálogo final seja coeso e alinhado com o fluxo da história. "
-                f"{self.roteirista_principal_config["goal"]}"
+                f"{self.roteirista_principal_config['goal']}"
             ),
             backstory=(
                 "Você foi inspirado nos grandes roteiristas do cinema e teatro, que entendem a importância de construir "
@@ -136,12 +136,12 @@ class RoteiristaCrew():
                 "missão é transformar as informações estruturadas pelo Agente Analista de Texto em roteiros que servem "
                 "como base para diálogos entre dois personagens, garantindo que cada palavra dita esteja alinhada com "
                 "o fluxo da narrativa. "
-                f"{self.roteirista_principal_config["backstory"]}"             
+                f"{self.roteirista_principal_config['backstory']}"
             ),   
-            verbose=True,
+            verbose=self.roteirista_principal_config['verbose'],
+            llm=self.roteirista_principal_config['model_name'],
             memory=True,
             allow_delegation=False,
-            llm=self.roteirista_principal_config["model_name"],
             max_rpm=self.max_rpm
         )
     
@@ -155,7 +155,7 @@ class RoteiristaCrew():
                 "o que deve ser discutido ou expresso em cada momento do diálogo, destacando as emoções ou intenções "
                 "que os personagens devem transmitir. O roteiro deve ser genérico o suficiente para ser adaptado a "
                 "qualquer cenário ou personalidade, mas específico em orientar a direção do diálogo. "
-                f"{self.roteirista_principal_config["description"]}"
+                f"{self.roteirista_principal_config['description']}"
             ),
             expected_output=(
                 "Você deverá entregar um roteiro estruturado que siga a sequência de Conflito Inicial, Desenvolvimento, "
@@ -163,7 +163,7 @@ class RoteiristaCrew():
                 "personagens devem abordar e as emoções ou intenções que devem ser expressas em momentos chave. O resultado "
                 "final deve ser um guia coeso e fluido, permitindo que um escritor ou diretor desenvolva um diálogo "
                 "envolvente e significativo a partir dele. "
-                f"{self.roteirista_principal_config["expected_output"]}"
+                f"{self.roteirista_principal_config['expected_output']}"
             ),   
             agent=self.roteirista_principal(),
         )
@@ -176,7 +176,7 @@ class RoteiristaCrew():
                 "Garantir a coesão, consistência e fidelidade ao contexto do roteiro criado, assegurando que todas as "
                 "partes do roteiro estão alinhadas com a narrativa original e que nenhuma informação crucial foi "
                 "omitida ou distorcida. "
-                f"{self.revisor_roteiro_config["goal"]}"
+                f"{self.revisor_roteiro_config['goal']}"
             ),
             backstory=(
                 "Você foi criado a partir de uma combinação de ferramentas de revisão de texto e análise semântica, "
@@ -185,10 +185,10 @@ class RoteiristaCrew():
                 "detectar inconsistências e garantir que a narrativa flua de forma lógica e envolvente. Com um olhar atento "
                 "para detalhes, você é responsável por garantir que o roteiro final esteja em perfeita harmonia com o que "
                 "foi originalmente planejado, respeitando as intenções do criador. "
-                f"{self.revisor_roteiro_config["backstory"]}"
+                f"{self.revisor_roteiro_config['backstory']}"
             ),   
-            verbose=self.revisor_roteiro_config["verbose"],
-            llm=self.revisor_roteiro_config["model_name"],
+            verbose=self.revisor_roteiro_config['verbose'],
+            llm=self.revisor_roteiro_config['model_name'],
             max_rpm=self.max_rpm,
             memory=True,
             allow_delegation=True,
@@ -202,14 +202,14 @@ class RoteiristaCrew():
                 "e fiel ao contexto estabelecido pelo Agente Analista de Texto. Você deve analisar cada parte do roteiro "
                 "- Conflito Inicial, Desenvolvimento, Clímax, Resolução e Conclusão - verificando se há desvios do contexto  "
                 "original ou qualquer inconsistência que possa comprometer a integridade da narrativa. "
-                f"{self.revisor_roteiro_config["description"]}"
+                f"{self.revisor_roteiro_config['description']}"
             ),
             expected_output=(
                 "Você deverá entregar um roteiro revisado, assegurando que todas as partes estão bem conectadas, que o "
                 "contexto original foi mantido e que a narrativa é lógica e fluida. Caso identifique inconsistências ou "
                 "desvios, você deve sugerir ajustes que alinhem o roteiro com o contexto original, garantindo que ele "
                 "seja coerente e envolvente para os futuros diálogos. "
-                f"{self.revisor_roteiro_config["expected_output"]}"
+                f"{self.revisor_roteiro_config['expected_output']}"
             ),    
             agent=self.revisor_roteiro(),
         )

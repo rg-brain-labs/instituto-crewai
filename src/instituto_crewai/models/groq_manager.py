@@ -1,5 +1,5 @@
 from langchain_groq import ChatGroq
-from llm_manager import LLMManager
+from .llm_manager import LLMManager
 
 GEMMA_1_7 = "gemma-7b-it"
 GEMMA_2_9 = "gemma2-9b-it"

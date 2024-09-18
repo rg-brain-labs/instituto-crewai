@@ -1,4 +1,22 @@
-from roteirista_crew import RoteiristaCrew
+from .roteirista_crew import RoteiristaCrew
+from .roteirista_config import default_config
+from typing import Any
+
+def criar_e_executar_crew(texto_base: str) -> Any:
+    # Obtém a configuração padrão
+    roteirista_config = default_config()
+
+    # Extrai os valores necessários do dicionário de configuração
+    max_rpm = roteirista_config['max_rpm']
+    agentes_config = roteirista_config['agente_config']
+
+    # Cria a instância de RoteiristaCrew
+    crew = RoteiristaCrew(agentes_config, max_rpm).crew()
+
+    # Executa a crew com o texto base
+    resultado = crew.kickoff(inputs={'texto_base': texto_base})
+
+    return resultado
 
 def main():
     texto_base =(
@@ -25,8 +43,8 @@ def main():
         "diversos outros programas de televisão. "
     )
     
-    crew = RoteiristaCrew()
-    resultado = crew.kickoff(inputs={'texto_base': texto_base})
+    
+    resultado = criar_e_executar_crew(texto_base)
 
     print(resultado)
 

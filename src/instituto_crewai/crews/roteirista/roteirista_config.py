@@ -1,5 +1,5 @@
 from typing import Dict, Any
-from agente_config import AgenteConfig
+from .agente_config import AgenteConfig
 from models import GroqManager, LLMA3_8
 
 def default_config() -> Dict[str, Any]:

@@ -1,0 +1,1 @@
+from .roteirista.roteirista_run import main
