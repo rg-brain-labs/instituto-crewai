@@ -2,7 +2,7 @@ from typing import Any
 
 class AgenteConfig:
     """
-    Configuração para um agente roteirista.
+    Configuração para um Agente.
 
     Atributos:
         llm (Any): Instância do LLM (Large Language Model) associada ao agente.
