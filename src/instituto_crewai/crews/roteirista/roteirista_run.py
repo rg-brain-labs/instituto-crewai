@@ -11,10 +11,10 @@ def criar_e_executar_crew(texto_base: str) -> Any:
     agentes_config = roteirista_config['agente_config']
 
     # Cria a instância de RoteiristaCrew
-    crew = RoteiristaCrew(agentes_config, max_rpm).crew()
+    crew = RoteiristaCrew(agentes_config, max_rpm)
 
     # Executa a crew com o texto base
-    resultado = crew.kickoff(inputs={'texto_base': texto_base})
+    resultado = crew.crew().kickoff(inputs={'texto_base': texto_base})
 
     return resultado
 
