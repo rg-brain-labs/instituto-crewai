@@ -41,7 +41,11 @@ tarefa_criacao_roteiro:
     devem transmitir em cada parte da narrativa, garantindo que o roteiro siga uma ordem lógica e emocionalmente 
     envolvente.
 
-    {roteirista_principal_especializacao_description}    
+    {roteirista_principal_especializacao_description}
+
+    <texto_base>
+    {texto_base}
+    </texto_base>    
    
   expected_output: >
     Você deverá entregar um roteiro estruturado que siga a sequência de Conflito Inicial, Desenvolvimento, Clímax, 
@@ -60,7 +64,11 @@ tarefa_revisao_roteiro:
     também se as emoções e tópicos de conversa estão bem representados e se há transições fluidas entre as partes. 
     Em caso de inconsistências, sugerir ajustes que alinhem o roteiro com o contexto emocional e narrativo original.
 
-    {revisor_roteiro_especializacao_description}    
+    {revisor_roteiro_especializacao_description} 
+
+    <texto_base>
+    {texto_base}
+    </texto_base>   
    
   expected_output: >
     Você deverá entregar um roteiro revisado, assegurando que todas as partes estejam bem conectadas e que o 

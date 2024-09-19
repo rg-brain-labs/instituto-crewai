@@ -1,6 +1,6 @@
 from typing import Dict, Any
 from .agente_config import AgenteConfig
-from ...models import GroqManager, LLMA3_8
+from ...models import GroqManager, LLMA3_8, MIXTRAL_8_7, LLMA3_1_70
 
 def default_config() -> Dict[str, Any]:
     """
@@ -9,7 +9,7 @@ def default_config() -> Dict[str, Any]:
     Retorna:
         Dict[str, Any]: Um dicionário contendo 'max_rpm' e a lista 'agente_config'.
     """
-    llm_manager = GroqManager(model_key=LLMA3_8)
+    llm_manager = GroqManager(model_key=LLMA3_1_70)
     llm_instance = llm_manager.get_instance()
     
     return {        
