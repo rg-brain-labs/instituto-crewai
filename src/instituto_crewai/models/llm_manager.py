@@ -11,7 +11,7 @@ class LLMManager:
         current_model_key (str): Chave atual do modelo selecionado.
     """
 
-    def __init__(self, temperature: float, model_key: str, models: Dict[str, Dict[str, Any]]) -> None:
+    def __init__(self, model_key: str, models: Dict[str, Dict[str, Any]]) -> None:
         """
         Inicializa a classe LLMManager com a temperatura e os modelos especificados.
 
@@ -20,7 +20,7 @@ class LLMManager:
             model_key (str): Chave do modelo a ser instanciado.
             models (Dict[str, Dict[str, Any]]): Configurações de cada modelo.
         """
-        self.temperature = temperature
+        
         self.models = models
         self.set_model(model_key)
 
@@ -39,7 +39,7 @@ class LLMManager:
         
         self.current_model_key = model_key
 
-    def get_instance(self, llm_class: Any) -> Any:
+    def get_instance(self) -> dict:
         """
         Retorna uma instância configurada do modelo atualmente selecionado.
 
@@ -50,18 +50,5 @@ class LLMManager:
             Any: Instância configurada do modelo LLM.
         """
         model_info = self.models[self.current_model_key]
-        return llm_class(
-            model=model_info["model_name"],
-            temperature=self.temperature,
-            verbose=model_info["verbose"],
-        )
-
-    def get_model_rpm(self) -> int:
-        """
-        Retorna o valor de RPM (Requests per Minute) para o modelo atualmente selecionado.
-
-        Retorna:
-            int: Valor de RPM do modelo.
-        """
-        model_info = self.models[self.current_model_key]
-        return model_info["rpm"]
+        return model_info
+    

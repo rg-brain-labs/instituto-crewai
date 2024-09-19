@@ -1,1 +1,1 @@
-from .roteirista.roteirista_run import main
+from .roteirista.roteirista_execute import roteirista_run

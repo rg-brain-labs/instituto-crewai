@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "instituto_crewai"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["rodrigo.goncalves"]
 readme = "README.md"
@@ -8,7 +8,7 @@ packages = [{include = "instituto_crewai", from = "src"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<=3.13"
-crewai = {extras = ["tools"], version = "^0.55.2"}
+crewai = {extras = ["tools"], version = "^0.61.0"}
 python-dotenv = "^1.0.1"
 
 pydantic = "^2.9.2"
@@ -24,7 +24,7 @@ pre-commit = "^3.8.0"
 black = "^24.8.0"
 
 [tool.poetry.scripts]
-roteirista = "instituto_crewai.crews.roteirista.roteirista_run:main"
+roteirista = "instituto_crewai.main_cli:roteirista_run"
 
 [build-system]
 requires = ["poetry-core"]
