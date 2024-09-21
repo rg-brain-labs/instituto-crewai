@@ -1,7 +1,7 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from typing import List
-from .agente_config import AgenteConfig
+from instituto_crewai.crews.roteirista.agente_config import AgenteConfig
 
 @CrewBase
 class RoteiristaCrew():

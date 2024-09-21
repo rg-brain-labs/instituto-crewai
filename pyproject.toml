@@ -12,9 +12,9 @@ crewai = {extras = ["tools"], version = "^0.61.0"}
 python-dotenv = "^1.0.1"
 
 pydantic = "^2.9.2"
-streamlit = "^1.38.0"
 
 duckduckgo-search = "^6.2.11"
+streamlit = "^1.38.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
@@ -25,6 +25,8 @@ black = "^24.8.0"
 
 [tool.poetry.scripts]
 roteirista = "instituto_crewai.main_cli:roteirista_run"
+streamlit = "instituto_crewai.run_streamlit:main"
+
 
 [build-system]
 requires = ["poetry-core"]

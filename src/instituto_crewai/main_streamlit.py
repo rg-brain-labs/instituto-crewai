@@ -1,7 +1,7 @@
 import streamlit as st
 from datetime import datetime, date
 import json
-from .crews import RoteiristController
+from instituto_crewai.crews import RoteiristController
 
 # Inicialização do controlador e variáveis de sessão
 controller = RoteiristController()
@@ -27,6 +27,7 @@ def verificar_limite_diario():
         st.session_state.ultima_data = hoje
     return st.session_state.roteiros_hoje < 3
 
+
 # Interface principal
 st.title("Gerador de Roteiros")
 
@@ -40,14 +41,14 @@ else:
 
 # Seleção de estilo
 estilo = st.selectbox("Escolha o estilo do roteiro:", 
-                      ["Vídeo para YouTube", "Conversa entre dois personagens", "TED Talk"])
+                    ["Vídeo para YouTube", "Conversa entre dois personagens", "TED Talk"])
 
 # Seleção de tom e emoção (para conversa entre personagens)
 if estilo == "Conversa entre dois personagens":
     tom = st.selectbox("Escolha o tom da conversa:", 
-                       ["Formal", "Descontraído", "Cômico", "Profissional", "Motivacional"])
+                    ["Formal", "Descontraído", "Cômico", "Profissional", "Motivacional"])
     emocao = st.selectbox("Escolha a emoção predominante:", 
-                          ["Empatia", "Raiva", "Alegria", "Tristeza", "Sarcasmo", "Seriedade"])
+                        ["Empatia", "Raiva", "Alegria", "Tristeza", "Sarcasmo", "Seriedade"])
 
 # Área de descrição adicional
 st.subheader("Descrição Adicional")
@@ -116,4 +117,4 @@ Estrutura:
 
 # Contagem de roteiros restantes
 roteiros_restantes = 3 - st.session_state.roteiros_hoje
-st.sidebar.metric("Roteiros restantes hoje", roteiros_restantes)
+st.sidebar.metric("Roteiros restantes hoje", roteiros_restantes) 

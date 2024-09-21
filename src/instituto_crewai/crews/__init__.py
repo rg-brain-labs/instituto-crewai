@@ -1,1 +1,1 @@
-from .roteirista.roteirista_execute import RoteiristController
+from instituto_crewai.crews.roteirista.roteirista_execute import RoteiristController

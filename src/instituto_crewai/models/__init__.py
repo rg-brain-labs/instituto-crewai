@@ -1,5 +1,5 @@
-from .gemini_manager import GeminiManager
-from .groq_manager import GroqManager
+from instituto_crewai.models.gemini_manager import GeminiManager
+from instituto_crewai.models.groq_manager import GroqManager
 
 from .groq_manager import (
     GEMMA_1_7,

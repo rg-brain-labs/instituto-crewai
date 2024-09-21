@@ -1,4 +1,4 @@
-from .llm_manager import LLMManager
+from instituto_crewai.models.llm_manager import LLMManager
 
 GEMMA_1_7 = "groq/gemma-7b-it"
 GEMMA_2_9 = "groq/gemma2-9b-it"
