@@ -16,9 +16,7 @@ tarefa_analise_texto:
 
     Além de identificar os elementos acima, você deve associar cada um deles às emoções relevantes (ex.: raiva, 
     defesa, esperança) e tópicos de conversa principais que emergem ao longo da narrativa, garantindo que 
-    esses pontos sirvam de base sólida para o roteirista. 
-
-    {analista_texto_especializacao_description}
+    esses pontos sirvam de base sólida para o roteirista.
     
     <texto_base>
     {texto_base}
@@ -28,9 +26,7 @@ tarefa_analise_texto:
     Conflito Inicial, Desenvolvimento, Clímax, Resolução e Conclusão, junto com as emoções e tópicos de conversa 
     relevantes para cada um desses elementos. A saída deve ser clara e coesa, facilitando o uso dessas informações 
     na criação do roteiro. O resultado deve fornecer uma base sólida para o Agente Roteirista seguir na construção 
-    do roteiro.  
-
-    {analista_texto_especializacao_expected_output}  
+    do roteiro.
 
 tarefa_criacao_roteiro:
   description: >
@@ -40,8 +36,6 @@ tarefa_criacao_roteiro:
     deve ser discutido ou expresso em cada momento do diálogo. Destaque as emoções e intenções que os personagens 
     devem transmitir em cada parte da narrativa, garantindo que o roteiro siga uma ordem lógica e emocionalmente 
     envolvente.
-
-    {roteirista_principal_especializacao_description}
 
     <texto_base>
     {texto_base}
@@ -54,8 +48,6 @@ tarefa_criacao_roteiro:
     fluido, que permita a um escritor ou diretor desenvolver diálogos envolventes e significativos com base nesse 
     roteiro.
 
-    {roteirista_principal_especializacao_expected_output}
-
 tarefa_revisao_roteiro:
   description: >
     Sua tarefa é revisar o roteiro criado pelo Agente Roteirista, garantindo que ele seja coeso, consistente e fiel 
@@ -63,9 +55,7 @@ tarefa_revisao_roteiro:
     corretamente a estrutura de Conflito Inicial, Desenvolvimento, Clímax, Resolução e Conclusão, analisando 
     também se as emoções e tópicos de conversa estão bem representados e se há transições fluidas entre as partes. 
     Em caso de inconsistências, sugerir ajustes que alinhem o roteiro com o contexto emocional e narrativo original.
-
-    {revisor_roteiro_especializacao_description} 
-
+   
     <texto_base>
     {texto_base}
     </texto_base>   
@@ -75,5 +65,3 @@ tarefa_revisao_roteiro:
     contexto original, as emoções e os tópicos de conversa estejam preservados e consistentes. Caso encontre 
     inconsistências ou desvios, você deverá sugerir melhorias que garantam que o roteiro esteja coeso e envolvente, 
     fluindo de maneira lógica e alinhada com a narrativa estabelecida.
-
-    {revisor_roteiro_especializacao_expected_output}

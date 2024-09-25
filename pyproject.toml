@@ -8,7 +8,7 @@ packages = [{include = "instituto_crewai", from = "src"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<=3.13"
-crewai = {extras = ["tools"], version = "^0.61.0"}
+crewai = {extras = ["tools"], version = "^0.63.2"}
 python-dotenv = "^1.0.1"
 
 pydantic = "^2.9.2"

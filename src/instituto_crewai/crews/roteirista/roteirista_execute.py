@@ -1,25 +1,28 @@
 from instituto_crewai.crews.roteirista.roteirista_crew import RoteiristaCrew
 from instituto_crewai.crews.roteirista.roteirista_config import default_config
-from typing import Any, Dict
-import sys
+from typing import  Dict
 
-class RoteiristController:
+class RoteiristaController:
     def __init__(self):
         default = default_config()
         self.agentes_config = default['agente_config']
+        
+        self.crew = RoteiristaCrew(self.agentes_config).crew()
 
-    def roteirista_run(self, inputs: Dict[str, str]):
+    def run(self, inputs: Dict[str, str]):
         """
         Run the crew.
-        """
-        RoteiristaCrew(self.agentes_config).crew().kickoff(inputs=inputs)
+        """        
+        crew_result = self.crew.kickoff(inputs=inputs)
+        
+        return crew_result
 
     def train(self, n_iterations: int, filename: str, inputs: Dict[str, str]):
         """
         Train the crew for a given number of iterations.
         """
         try:
-            RoteiristaCrew(self.agentes_config).crew().train(n_iterations=n_iterations, filename=filename, inputs=inputs)
+            self.crew.train(n_iterations=n_iterations, filename=filename, inputs=inputs)
         except Exception as e:
             raise Exception(f"An error occurred while training the crew: {e}")
 
@@ -28,7 +31,7 @@ class RoteiristController:
         Replay the crew execution from a specific task.
         """
         try:
-            RoteiristaCrew(self.agentes_config).crew().replay(task_id=task_id)
+            self.crew.replay(task_id=task_id)
         except Exception as e:
             raise Exception(f"An error occurred while replaying the crew: {e}")
 
@@ -37,6 +40,6 @@ class RoteiristController:
         Test the crew execution and returns the results.
         """
         try:
-            RoteiristaCrew(self.agentes_config).crew().test(n_iterations=n_iterations, openai_model_name=openai_model_name, inputs=inputs)
+            self.crew.test(n_iterations=n_iterations, openai_model_name=openai_model_name, inputs=inputs)
         except Exception as e:
             raise Exception(f"An error occurred while testing the crew: {e}")
