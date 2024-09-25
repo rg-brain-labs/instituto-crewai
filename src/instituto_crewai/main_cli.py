@@ -31,10 +31,10 @@ crew = RoteiristaController()
 crew_result = crew.run({'texto_base': texto_base})
 
 # Accessing the crew output
-print(f"Raw Output: {crew_result.raw}")
+#print(f"Raw Output: {crew_result.raw}")
 # if crew_result.json_dict:
 #     print(f"JSON Output: {json.dumps(crew_result.json_dict, indent=2)}")
 # if crew_result.pydantic:
 #     print(f"Pydantic Output: {crew_result.pydantic}")
-# print(f"Tasks Output: {crew_result.tasks_output}")
-print(f"Token Usage: {crew_result.token_usage}")
+print(f"Tasks Output: {crew_result.tasks_output}")
+#print(f"Token Usage: {crew_result.token_usage}")
