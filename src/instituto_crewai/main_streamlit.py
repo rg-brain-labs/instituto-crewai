@@ -39,15 +39,9 @@ def analisar_texto(texto):
 
 def main():
     # Sidebar
-    st.sidebar.title("Roteirizador")
-    st.sidebar.write("Bem-vindo(a) ao **Roteirizador**, a ferramenta que irá automatizar seu processo de criação de roteiros.")
-    st.sidebar.divider()
-    st.sidebar.info("Esta ferramenta transforma um texto base em um roteiro estruturado.")
-   
-    # Opções de personalização
-    estilo_roteiro = st.sidebar.selectbox("Estilo do Roteiro", ["Padrão", "Cinema", "Teatro", "TV"])
-    tom_roteiro = st.sidebar.slider("Tom do Roteiro", 1, 5, 3, help="1: Muito sério, 5: Muito descontraído")
-
+    st.sidebar.title("Roteirizador")    
+    st.sidebar.info("Esta ferramenta transforma um texto base em um roteiro estruturado.")   
+    
     # Display Token Usage KPIs in sidebar
     if st.session_state.token_usage:
         st.sidebar.divider()
@@ -67,9 +61,7 @@ def main():
         if st.button("Roteirizar", type="primary"):           
             with st.spinner("Processando..."):
                 crew_result = controller.run({
-                    'texto_base': texto_base,
-                    #'estilo': estilo_roteiro,
-                    #'tom': tom_roteiro
+                    'texto_base': texto_base,                   
                 })
             st.session_state.texto_roteirizado = crew_result.raw
             st.session_state.token_usage = crew_result.token_usage
@@ -92,17 +84,17 @@ def main():
         st.subheader("Resultados das Tarefas")
         
         # Criar tabs para cada tarefa
-        task_names = [task.name for task in st.session_state.tasks_output]
-        tabs = st.tabs(task_names)
+        task_agent = [task.agent for task in st.session_state.tasks_output]
+        tabs = st.tabs(task_agent)
         
         for i, tab in enumerate(tabs):
             with tab:
                 task = st.session_state.tasks_output[i]
-                st.write(f"**Descrição:** {task.description}")
-                st.write(f"**Agente:** {task.agent}")
                 st.write(f"**Resumo:** {task.summary}")
                 st.text_area("Resultado", value=task.raw, height=300, key=f"task_output_{i}")
 
+        st.divider()
+        
         st.subheader("Roteiro Final")
         texto_roteirizado = st.text_area("Roteiro gerado", value=st.session_state.texto_roteirizado, height=300, key="output_text")
         analise_roteiro = analisar_texto(texto_roteirizado)
@@ -122,14 +114,16 @@ def main():
         st.subheader("Histórico de Roteiros")
         for i, item in enumerate(reversed(st.session_state.historico)):
             with st.expander(f"Roteiro {len(st.session_state.historico) - i}: {item['data']}"):
-                st.text_area("Texto Base", item['texto_base'], height=100)
+                st.text_area("Texto Base", item['texto_base'], height=100, disabled=True)
                 st.text_area("Roteiro Gerado", item['roteiro'], height=200)
+                st.divider()
                 if 'tasks_output' in item:
                     st.subheader("Resultados das Tarefas")
                     for task in item['tasks_output']:
-                        st.write(f"**Tarefa:** {task.name}")
                         st.write(f"**Agente:** {task.agent}")
-                        st.text_area("Resultado", value=task.raw, height=150)
+                        st.write(f"**Tarefa:** {task.name}")
+                        st.text_area("Resultado", value=task.raw, height=150, disabled=True)                       
+                   
 
 if __name__ == "__main__":
     main()
