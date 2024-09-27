@@ -9,7 +9,7 @@ def default_config() -> Dict[str, Any]:
     Retorna:
         Dict[str, Any]: Um dicionário contendo 'max_rpm' e a lista 'agente_config'.
     """
-    llm_manager = GroqManager(model_key=LLMA3_1_70)
+    llm_manager = GroqManager(model_key=LLMA3_8)
     llm_instance = llm_manager.get_instance()
     
     return {        
