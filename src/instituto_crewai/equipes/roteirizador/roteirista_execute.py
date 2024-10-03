@@ -1,5 +1,5 @@
-from instituto_crewai.crews.roteirista.roteirista_crew import RoteiristaCrew
-from instituto_crewai.crews.roteirista.roteirista_config import default_config
+from instituto_crewai.equipes.roteirizador.roteirista_crew import RoteiristaCrew
+from instituto_crewai.equipes.roteirizador.roteirista_config import default_config
 from typing import  Dict
 
 class RoteiristaController:

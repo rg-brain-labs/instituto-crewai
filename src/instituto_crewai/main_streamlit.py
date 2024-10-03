@@ -1,6 +1,6 @@
 import streamlit as st
 from datetime import datetime
-from instituto_crewai.crews import RoteiristaController
+from instituto_crewai.equipes import RoteiristaController
 
 # Inicialização do controlador e variáveis de sessão
 controller = RoteiristaController()

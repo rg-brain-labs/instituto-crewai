@@ -1,1 +1,0 @@
-from instituto_crewai.crews.roteirista.roteirista_execute import RoteiristaController

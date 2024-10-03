@@ -1,4 +1,4 @@
-from instituto_crewai.crews import RoteiristaController
+from instituto_crewai.equipes import RoteiristaController
 import json
 
 texto_base =(

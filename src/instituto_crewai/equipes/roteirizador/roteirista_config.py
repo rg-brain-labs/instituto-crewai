@@ -1,5 +1,5 @@
 from typing import Dict, Any
-from instituto_crewai.crews.roteirista.agente_config import AgenteConfig
+from instituto_crewai.equipes.roteirizador.agente_config import AgenteConfig
 from instituto_crewai.models import GroqManager, LLMA3_8, LLMA3_1_70
 
 def default_config() -> Dict[str, Any]:
