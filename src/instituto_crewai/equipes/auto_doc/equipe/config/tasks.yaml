@@ -1,0 +1,55 @@
+mapear_processo:
+  description: >
+    Revisar os <requisitos> levantados e extrair as informações essenciais 
+    sobre os processos de negócios. Isso inclui:
+
+    - Identificar e descrever as atividades principais.
+    - Mapeamento das interações entre os diferentes stakeholders.
+    - Detalhamento dos fluxos de trabalho e das etapas necessárias para 
+    a conclusão de cada processo.
+    - Compilação de informações sobre responsáveis, prazos e critérios 
+    de sucesso.
+    - Elaboração de um documento inicial que organize essas informações 
+    de maneira clara e lógica.
+
+    <requisitos>
+    {requisitos}
+    </requisitos>
+
+  expected_output: >
+    O resultado esperado da tarefa é um documento estruturado contendo:
+    
+    - Uma lista detalhada de atividades e interações.
+    - Descrições claras das responsabilidades e fluxos de trabalho.
+    - Notas sobre quaisquer considerações especiais que possam impactar 
+    a documentação de negócios que será criada posteriormente.
+
+documentar_processo:
+  description: >
+    Elaborar a documentação não técnica com base nas informações 
+    estruturadas fornecidas pelo Agente de Mapeamento de Processos. 
+    Isso inclui:
+
+    - Estruturar a documentação de acordo com <template_padrao> 
+    pré-definido.
+    - Usar uma linguagem simples e acessível, evitando jargões técnicos 
+    que possam confundir os leitores.
+    - Incluir seções que expliquem o propósito de cada processo, as 
+    atividades envolvidas, e as responsabilidades de cada stakeholder.
+    - Incorporar exemplos práticos, sempre que possível, para ilustrar os 
+    processos e facilitar a compreensão.
+    - Garantir que a documentação seja revisada e esteja livre de erros, 
+    mantendo um padrão de qualidade.
+
+  expected_output: >
+    Documentação não técnica que contenha:
+
+    - Um resumo executivo do processo mapeado, destacando seus objetivos 
+    e benefícios.
+    - Descrições claras e concisas das atividades, interações e 
+    responsabilidades.
+    - Um formato visualmente agradável, com uso de listas, tabelas e 
+    gráficos, onde aplicável.
+    - Anexos ou referências adicionais que possam ser úteis para o time de 
+    negócios, como FAQs ou glossários.
+    
