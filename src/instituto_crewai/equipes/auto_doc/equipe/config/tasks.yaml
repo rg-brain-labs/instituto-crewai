@@ -41,6 +41,32 @@ documentar_processo:
     - Garantir que a documentação seja revisada e esteja livre de erros, 
     mantendo um padrão de qualidade.
 
+    <template_padrao>
+    # Nome do Processo
+
+    ## Stackholder
+
+    ## Atividades
+
+    ### Atividade 1
+      - Descrição
+      - Validações
+      - Fluxo
+
+    ### Atividade N
+      - Descrição
+      - Validações
+      - Fluxo
+
+    ## Integrações
+
+    ### Integração 1
+     - Descrição
+
+    ### Integração N
+     - Descrição
+    </template_padrao>
+
   expected_output: >
     Documentação não técnica que contenha:
 
