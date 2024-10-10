@@ -1,8 +1,8 @@
 # Para executar poetry run streamlit run "src/instituto_crewai/equipes/streamlit_equipes_template/streamlit_app.py"
 import streamlit as st
-from PIL import Image
+import yaml
 from datetime import datetime
-from instituto_crewai.equipes.streamlit_equipes_template.equipe.equipe_execucao import EquipeExemploController
+from instituto_crewai.equipes.auto_doc.equipe.auto_doc_execucao import AutoDocController as EquipeController
 
 # Configuração da Página Principal
 st.set_page_config(layout="wide", page_title="Nome Projeto", page_icon="🎬")
@@ -21,6 +21,8 @@ def status_inicial():
         st.session_state.saida_tarefas = []
     if 'historico' not in st.session_state:
         st.session_state.historico = []
+    if 'exemplos' not in st.session_state:
+        st.session_state.exemplos = []
 
 status_inicial()
 
@@ -34,9 +36,17 @@ def analisar_texto(texto):
 # Dessa forma evitamos o erro WARNING: Overriding of current TracerProvider is not allowed    
 @st.cache_resource
 def criar_equipe():
-    return EquipeExemploController()
+    return EquipeController()
 
 st.session_state.equipe = criar_equipe()
+
+@st.cache_data
+def carregando_exemplo():
+    with open('src/instituto_crewai/equipes/auto_doc/equipe/config/exemplos.yaml', 'r') as file:
+        exemplo = yaml.safe_load(file)
+    return exemplo
+
+st.session_state.exemplos = carregando_exemplo()
 
 def main():
     # Sidebar       
@@ -46,15 +56,15 @@ def main():
     if st.session_state.mostrar_inputs:
         st.subheader("Entradas da Equipe")
         
-        # # Add a selectbox for choosing predefined examples
-        # example_options = ["Escreva seu próprio texto"] + [example['titulo'] for example in texto_base_examples['exemplos']]
-        # selected_example = st.selectbox("Escolha um exemplo ou escreva seu próprio texto", options=example_options)
+        # Add a selectbox for choosing predefined examples
+        example_options = ["Escreva seu próprio Requisito"] + [example['titulo'] for example in st.session_state.exemplos['exemplos']]
+        selected_example = st.selectbox("Escolha um exemplo ou escreva seu próprio texto", options=example_options)
         
-        # if selected_example == "Escreva seu próprio texto":
-        st.session_state.texto_base = st.text_area(label="Digite ou cole seu texto aqui", height=200, key="input_text")
-        # else:
-        #     selected_text = next(example['texto'] for example in texto_base_examples['exemplos'] if example['titulo'] == selected_example)
-        #     st.session_state.texto_base = st.text_area(label="Digite ou cole seu texto aqui", value=selected_text, height=200, key="input_text")
+        if selected_example == "Escreva seu próprio Requisito":
+            st.session_state.texto_base = st.text_area(label="Digite ou cole seu Requisito aqui", height=200, key="input_text")
+        else:
+            selected_text = next(example['texto'] for example in st.session_state.exemplos['exemplos'] if example['titulo'] == selected_example)
+            st.session_state.texto_base = st.text_area(label="Digite ou cole seu Requisito aqui", value=selected_text, height=200, key="input_text")
         
         analise_base = analisar_texto(st.session_state.texto_base)
         st.write(f"Caracteres: {len(st.session_state.texto_base)} | Palavras: {analise_base['num_palavras']}")
@@ -63,7 +73,7 @@ def main():
         if st.button("Trabalhar", type="primary"):
             with st.spinner("Processando..."):
                 crew_result = st.session_state.equipe.run({
-                    'texto_base': st.session_state.texto_base,
+                    'requisitos': st.session_state.texto_base,
                 })
             st.session_state.texto_processado = crew_result.raw           
             st.session_state.saida_tarefas = crew_result.tasks_output            

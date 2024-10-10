@@ -1,11 +1,11 @@
-from instituto_crewai.equipes.streamlit_equipes_template.equipe.equipe import EquipeExemplo
+from instituto_crewai.equipes.auto_doc.equipe.auto_doc import EquipeAutoDoc
 
 from typing import  Dict
 
-class EquipeExemploController:
+class AutoDocController:
     def __init__(self):       
         
-        self.crew = EquipeExemplo().crew()
+        self.crew = EquipeAutoDoc().crew()
 
     def run(self, inputs: Dict[str, str]):
         """
