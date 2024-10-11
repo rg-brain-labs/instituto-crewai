@@ -26,58 +26,82 @@ mapear_processo:
 
 documentar_processo:
   description: >
-    Elaborar a documentação não técnica com base nas informações 
-    estruturadas fornecidas pelo Agente de Mapeamento de Processos. 
-    Isso inclui:
+    Elaborar a documentação não técnica com base nas informações estruturadas 
+    fornecidas pelo Agente de Mapeamento de Processos. Isso inclui:
 
-    - Estruturar a documentação de acordo com <template_padrao> 
-    pré-definido.
-    - Usar uma linguagem simples e acessível, evitando jargões técnicos 
-    que possam confundir os leitores.
-    - Incluir seções que expliquem o propósito de cada processo, as 
-    atividades envolvidas, e as responsabilidades de cada stakeholder.
-    - Incorporar exemplos práticos, sempre que possível, para ilustrar os 
-    processos e facilitar a compreensão.
-    - Garantir que a documentação seja revisada e esteja livre de erros, 
-    mantendo um padrão de qualidade.
+    - Estruturar a documentação de acordo com o <template_padrao> pré-definido, 
+    garantindo consistência e facilidade de leitura.
+    - Usar uma linguagem simples e acessível, evitando jargões técnicos que possam 
+    confundir os leitores. Se jargões forem necessários, incluí-los no Glossário 
+    para maior clareza.
+    - Incluir seções que expliquem detalhadamente o propósito do processo, 
+    as atividades envolvidas, as integrações tecnológicas e as responsabilidades de 
+    cada stakeholder.
+    - Incorporar exemplos práticos e cenários de aplicação, sempre que possível, 
+    para ilustrar os processos e facilitar a compreensão do time de negócios.
+    - Garantir que a mantenha um alto padrão de qualidade e profissionalismo.
+    - Usar elementos visuais, como tabelas, gráficos de fluxo e diagramas BPMN, 
+    para representar as atividades e integrações de forma clara.
+    
+    <template_padrao>    
+      # Nome do Processo
+      Apresentação geral do processo, explicando seu objetivo e contexto dentro 
+      da empresa. Detalhe quais problemas ele resolve e quais os benefícios para 
+      o time de negócios.
 
-    <template_padrao>
-    # Nome do Processo
+      ## Stakeholders
+      Lista dos principais envolvidos no processo, suas responsabilidades e o 
+      papel de cada um. Exemplos de stakeholders incluem analistas de negócios, 
+      gerentes de projeto, e equipes técnicas.
 
-    ## Stackholder
+      ## Atividades
+      Descrição detalhada de cada atividade envolvida no processo, com suas 
+      respectivas validações e fluxo:
 
-    ## Atividades
+      ### Atividade 1: [Nome da Atividade]
+        - **Descrição**: Explicação detalhada do que é feito nesta atividade.
+        - **Validações**: Critérios que precisam ser atendidos antes que a atividade 
+        seja considerada completa.
+        - **Fluxo**: Descrição do passo a passo para realizar a atividade, destacando 
+        as interações com outros processos ou sistemas.
 
-    ### Atividade 1
-      - Descrição
-      - Validações
-      - Fluxo
+      ### Atividade N: [Nome da Atividade]
+        - **Descrição**: Explicação detalhada do que é feito nesta atividade.
+        - **Validações**: Critérios que precisam ser atendidos antes que a atividade 
+        seja considerada completa.
+        - **Fluxo**: Descrição do passo a passo para realizar a atividade, destacando 
+        as interações com outros processos ou sistemas.
 
-    ### Atividade N
-      - Descrição
-      - Validações
-      - Fluxo
+      ## Integrações
+      Detalhe sobre como o processo se integra com outros sistemas e plataformas, 
+      explicando a função de cada integração e sua importância para o sucesso do 
+      processo.
 
-    ## Integrações
+      ### Integração 1: [Nome da Integração]
+        - **Descrição**: Explicação de como a integração funciona, quais sistemas 
+        estão envolvidos e seu papel no processo.
 
-    ### Integração 1
-     - Descrição
+      ### Integração N: [Nome da Integração]
+        - **Descrição**: Explicação de como a integração funciona, quais sistemas 
+        estão envolvidos e seu papel no processo.
 
-    ### Integração N
-     - Descrição
+      ## Glossário
+      Lista de termos técnicos e seus significados, para garantir que todos os 
     </template_padrao>
 
   expected_output: >
     Documentação não técnica que contenha:
 
-    - Um resumo executivo do processo mapeado, destacando seus objetivos 
-    e benefícios.
-    - Descrições claras e concisas das atividades, interações e 
-    responsabilidades.
-    - Um formato visualmente agradável, com uso de listas, tabelas e 
-    gráficos, onde aplicável.
-    - Anexos ou referências adicionais que possam ser úteis para o time de 
-    negócios, como FAQs ou glossários.
+    - Resumo executivo do processo mapeado, destacando seus objetivos, contexto e 
+    benefícios para a empresa.
+    - Descrições claras e concisas das atividades, interações e responsabilidades, 
+    garantindo que cada etapa do processo seja compreensível para a área de negócios.
+    - Um formato visualmente agradável e intuitivo, com uso de listas, tabelas e 
+    gráficos de fluxo, facilitando a navegação entre as seções.
+    - Seção de glossário, para fornecer explicações adicionais e suportar o 
+    entendimento do time de negócios.
+    - Garantia de que a documentação está organizada e consistente, sendo uma 
+    ferramenta prática para a implementação e monitoramento de soluções.
     
 auditar_documentacao:
   description: >

@@ -34,7 +34,7 @@ class EquipeAutoDoc():
         """        
         return Agent(
             config=self.agents_config['especialista_documentacao'],
-            llm=LLM(model="groq/llama-3.1-70b-versatile", temperature=0.25),
+            llm=LLM(model="groq/llama-3.1-70b-versatile", temperature=0.75),
             max_rpm=30,
             memory=True,
             allow_delegation=False,
@@ -56,18 +56,18 @@ class EquipeAutoDoc():
     #     ) 
         
     #@agent
-    def coordenador_comunicacao(self) -> Agent:
-        """
+    # def coordenador_comunicacao(self) -> Agent:
+    #     """
        
-        """        
-        return Agent(
-            config=self.agents_config['coordenador_comunicacao'],
-            llm=LLM(model="groq/llama-3.2-90b-text-preview", temperature=0.25),
-            max_rpm=30,
-            memory=True,
-            allow_delegation=True,
-            verbose=True,            
-        ) 
+    #     """        
+    #     return Agent(
+    #         config=self.agents_config['coordenador_comunicacao'],
+    #         llm=LLM(model="groq/llama-3.2-90b-text-preview", temperature=0.25),
+    #         max_rpm=30,
+    #         memory=True,
+    #         allow_delegation=True,
+    #         verbose=True,            
+    #     ) 
     
     
     @task
@@ -101,14 +101,14 @@ class EquipeAutoDoc():
     #     )
         
     #@task
-    def coordenar_comunicacao(self) -> Task: 
-        """
+    # def coordenar_comunicacao(self) -> Task: 
+    #     """
        
-        """
-        return Task(
-            config=self.tasks_config['coordenar_comunicacao'],
-            agent=self.coordenador_comunicacao(),
-        )
+    #     """
+    #     return Task(
+    #         config=self.tasks_config['coordenar_comunicacao'],
+    #         agent=self.coordenador_comunicacao(),
+    #     )
 
     @crew
     def crew(self) -> Crew:
@@ -118,10 +118,10 @@ class EquipeAutoDoc():
         return Crew(
             agents=self.agents,
             tasks=self.tasks,
-            process=Process.hierarchical,
+            process=Process.sequential,
             cache=True,
             verbose=True,
-            manager_agent=self.coordenador_comunicacao(),           
+            #manager_agent=self.coordenador_comunicacao(),           
             planning=True,
-            planning_llm=LLM(model="groq/llama-3.1-70b-versatile", temperature=0.25),
+            planning_llm=LLM(model="groq/llama-3.1-70b-versatile", temperature=0.50),
         )

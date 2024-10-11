@@ -10,7 +10,7 @@ packages = [{include = "instituto_crewai", from = "src"}]
 python = ">=3.10,<=3.13"
 pydantic = "^2.9.2"
 streamlit = "^1.38.0"
-crewai = {extras = ["tools"], version = "^0.67.1"}
+crewai = {extras = ["tools"], version = "^0.70.1"}
 pdfplumber = "^0.11.4"
 
 [tool.poetry.group.dev.dependencies]
