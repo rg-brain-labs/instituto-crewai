@@ -12,6 +12,7 @@ pydantic = "^2.9.2"
 streamlit = "^1.38.0"
 crewai = {extras = ["tools"], version = "^0.70.1"}
 pdfplumber = "^0.11.4"
+youtube-transcript-api = "^0.6.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
