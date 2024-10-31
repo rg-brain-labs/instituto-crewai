@@ -1,16 +1,51 @@
-tarefa_contar_historia:
+desmembra_projeto:
   description: >
-    Você está sentado ao lado de uma lareira crepitante, e seus netos, 
-    de olhos curiosos e atentos, aguardam ansiosamente por mais uma de 
-    suas histórias. Pegue o <texto_base> e transforme-o em uma narrativa 
-    encantadora, repleta de aventuras, magia, e lições de vida, para 
-    mantê-los entretidos e fascinados.
+    Analise cuidadosamente os requisitos do projeto {tipo_projeto}
+    e divida-os em tarefas individuais. Defina o escopo de cada
+    tarefa em detalhes, estabeleça prazos alcançáveis e garanta
+    que todas as dependências sejam consideradas:
 
-    <texto_base>
-    {texto_base}
-    </texto_base>
+    {requisitos_projeto}
+
+    Membros da equipe:
+
+    {membros_equipe}
 
   expected_output: >
-    Uma história envolvente que mistura elementos do cotidiano com 
-    detalhes fantásticos, capaz de capturar a atenção e a imaginação 
-    dos ouvintes, deixando uma mensagem especial ou uma moral no final.
+    Uma lista completa de tarefas com descrições detalhadas,
+    prazos, dependências e entregáveis. Sua saída final DEVE
+    incluir um gráfico de Gantt ou uma visualização de
+    cronograma semelhante específica para o projeto {tipo_projeto}.
+
+estimar_tempo_recurso:
+  description: >
+    Avalie minuciosamente cada tarefa do projeto {tipo_projeto}
+    para estimar o tempo, os recursos e o esforço necessários.
+    Utilize dados históricos, complexidade da tarefa e recursos
+    disponíveis para fornecer uma estimativa realista para cada
+    tarefa.
+  expected_output: >
+    Um relatório de estimativa detalhado descrevendo o tempo,
+    os recursos e o esforço necessários para cada tarefa do
+    projeto {tipo_projeto}. Seu relatório final DEVE incluir um
+    resumo de quaisquer riscos ou incertezas associados às
+    estimativas.
+
+alocar_recursos:
+  description: >
+    Aloque estrategicamente as tarefas do projeto {tipo_projeto}
+    aos membros da equipe com base em suas habilidades,
+    disponibilidade e carga de trabalho atual. Garanta que cada
+    tarefa seja atribuída ao membro da equipe mais adequado e
+    que a carga de trabalho seja distribuída uniformemente.
+
+    Membros da equipe:
+
+    {membros_equipe}
+
+  expected_output: >
+    Um gráfico de alocação de recursos mostrando quais membros
+    da equipe são responsáveis por cada tarefa do projeto
+    {tipo_projeto}, juntamente com as datas de início e término.
+    Sua saída final DEVE incluir também um resumo explicando o
+    racional por trás de cada decisão de alocação.
