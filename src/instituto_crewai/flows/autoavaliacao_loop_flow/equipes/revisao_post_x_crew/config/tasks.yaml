@@ -1,0 +1,30 @@
+verificar_post_x:
+  description: >
+    Verifique se o post X fornecido atende aos seguintes critérios:
+    - Deve ter entre 200 e 280 caracteres, inclusive.
+    - Não deve conter emojis.
+    - Deve conter apenas o próprio post, sem comentários adicionais.
+
+    O post deve seguir a regra 1-3-1:
+    - 1 declaração em negrito para atrair o leitor
+    - 3 linhas de informação de apoio
+    - 1 frase para resumir o post
+
+    Além disso, se você acredita que há algum problema com o post
+    ou maneiras de melhorá-lo, como a estrutura do post,
+    ritmo, escolha de palavras, por favor, forneça feedback.
+
+    Se algum dos critérios não for atendido, o post é considerado inválido.
+    Forneça mudanças práticas sobre o que está errado e quais ações
+    devem ser tomadas para corrigir o post.
+
+    Sua resposta final deve incluir:
+    - Válido: Verdadeiro/Falso
+    - Feedback: Forneça comentários se o post falhar em algum dos critérios.
+
+    Post X a ser Verificado:
+    {x_post}
+  expected_output: >
+    Aprovado: Verdadeiro/Falso
+    Feedback: Comentários aqui se reprovado.
+  agent: verificador_post_x
