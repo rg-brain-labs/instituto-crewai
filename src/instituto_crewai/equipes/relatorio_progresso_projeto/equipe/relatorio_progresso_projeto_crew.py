@@ -1,4 +1,3 @@
-# poetry run .\src\instituto_crewai\equipes\automated_project\equipe\automated_project_crew.py
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 

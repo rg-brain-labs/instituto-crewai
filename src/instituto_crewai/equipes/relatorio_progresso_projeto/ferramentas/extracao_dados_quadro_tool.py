@@ -7,7 +7,7 @@ class ExtracaoDadosQuadroTool(BaseTool):
 
     api_key: str = os.environ['TRELLO_API_KEY']
     api_token: str = os.environ['TRELLO_API_TOKEN']
-    board_id: str = os.environ['TRELLO_BOARD_ID']
+    board_id: str = os.environ['TRELLO_BOARD_ID_RUMO_EXTRAORDINARIO']
 
     def _run(self) -> dict:
         """
