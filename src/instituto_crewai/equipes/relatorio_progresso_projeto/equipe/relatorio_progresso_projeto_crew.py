@@ -11,13 +11,15 @@ class RelatorioProgressoProjetoCrew():
   def especialista_coleta_dados(self) -> Agent:
     return Agent(
     config=self.agents_config['especialista_coleta_dados'],
-    tools=[ExtracaoDadosQuadroTool(), CapturaDadosCartaoTool()]
+    llm=LLM(model="gemini/gemini-1.5-flash", temperature=0.50),
+    tools=[ExtracaoDadosQuadroTool(), CapturaDadosCartaoTool()],
   )
 
   @agent
   def especialista_analise_projeto(self) -> Agent:
     return Agent(
-    config=self.agents_config['especialista_analise_projeto']
+    config=self.agents_config['especialista_analise_projeto'],
+    llm=LLM(model="gemini/gemini-1.5-flash", temperature=0.50),
   )
 
   @task
