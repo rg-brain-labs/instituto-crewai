@@ -4,15 +4,15 @@ version = "0.1.1"
 description = ""
 authors = ["rodrigo.goncalves"]
 readme = "README.md"
-packages = [{include = "instituto_crewai", from = "src"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<=3.13"
 pydantic = "^2.9.2"
 streamlit = "^1.38.0"
-crewai = {extras = ["tools"], version = "^0.76.2"}
+crewai = {extras = ["tools"], version = "^0.83.0"}
 pdfplumber = "^0.11.4"
 youtube-transcript-api = "^0.6.2"
+rich = "^13.9.4"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
@@ -20,6 +20,9 @@ isort = "^5.13.2"
 mypy = "^1.11.2"
 pre-commit = "^3.8.0"
 black = "^24.8.0"
+
+[tool.poetry.scripts]
+equipe_multiplicadora = "instituto_crewai.equipes.multiplicadora.multiplicadora_app:main"
 
 [build-system]
 requires = ["poetry-core"]
