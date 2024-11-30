@@ -1,34 +1,34 @@
 from typing import Optional
 
-from crewai import Agent, Crew, Process, Task
+from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from pydantic import BaseModel
 
-from autoavaliacao_loop_flow.ferramentas.contador_caracteres_tool import ContadorCaracteresTool
+from instituto_crewai.flows.autoavaliacao_loop_flow.ferramentas.contador_caracteres_tool import ContadorCaracteresTool
 
 class VerificacaoPostX(BaseModel):
-    valido: bool
+    validade: bool
     feedback: Optional[str]
 
 
 @CrewBase
-class RevisaoPostXCrew:
-    """RevisaoPostXCrew"""
-
-    configuracao_agent = "config/agents.yaml"
-    configuracao_task = "config/tasks.yaml"
+class RevisaoPostXCrew():
+    """RevisaoPostXCrew"""  
 
     @agent
     def verificador_post_x(self) -> Agent:
         return Agent(
-            config=self.configuracao_agent["verificador_post_x"],
+            config=self.agents_config["verificador_post_x"],
             tools=[ContadorCaracteresTool()],
+            llm=LLM(model="groq/llama-3.2-11b-text-preview", temperature=0.70),
+            memory=True,
+            verbose=True,
         )
 
     @task
     def verificar_post_x(self) -> Task:
         return Task(
-            config=self.configuracao_task["verificar_post_x"],
+            config=self.tasks_config["verificar_post_x"],
             output_pydantic=VerificacaoPostX,
         )
 

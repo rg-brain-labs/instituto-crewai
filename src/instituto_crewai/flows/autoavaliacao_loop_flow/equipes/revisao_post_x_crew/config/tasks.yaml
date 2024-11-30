@@ -23,7 +23,7 @@ verificar_post_x:
     - Feedback: Forneça comentários se o post falhar em algum dos critérios.
 
     Post X a ser Verificado:
-    {x_post}
+    {postagem_x}
   expected_output: >
     Aprovado: Verdadeiro/Falso
     Feedback: Comentários aqui se reprovado.

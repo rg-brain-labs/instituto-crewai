@@ -1,27 +1,27 @@
-from crewai import Agent, Crew, Process, Task
+from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 
-from autoavaliacao_loop_flow.ferramentas.contador_caracteres_tool import ContadorCaracteresTool
-
+from instituto_crewai.flows.autoavaliacao_loop_flow.ferramentas.contador_caracteres_tool import ContadorCaracteresTool
 
 @CrewBase
-class ShakespeareCrew:
+class ShakespeareCrew():
     """ShakespeareCrew"""
-
-    configuracao_agents = "config/agents.yaml"
-    configuracao_tasks = "config/tasks.yaml"
 
     @agent
     def bardo_shakespeariano(self) -> Agent:
         return Agent(
-            config=self.configuracao_agents["bardo_shakespeariano"],
+            config=self.agents_config["bardo_shakespeariano"],
             tools=[ContadorCaracteresTool()],
+            llm=LLM(model="groq/llama-3.2-11b-text-preview", temperature=0.25),
+            memory=True,
+            verbose=True,
+            
         )
 
     @task
     def escrever_post_x(self) -> Task:
         return Task(
-            config=self.configuracao_tasks["escrever_post_x"],
+            config=self.tasks_config["escrever_post_x"],
         )
 
     @crew
