@@ -1,0 +1,29 @@
+gerar_numeros:
+  description: >
+    Gere dois números aleatórios inteiros entre 1 e 10.
+    Esses números serão utilizados na próxima etapa de ensino.
+  expected_output: >
+    Um par de números inteiros no formato: [número1, número2].
+
+multiplicar:
+  description: >
+    Usando os dois números fornecidos, crie uma explicação lúdica e filosófica sobre multiplicação. 
+    Explique o conceito de multiplicação como uma maneira mágica de organizar e somar grupos de itens iguais.
+
+    Depois, ilustre o raciocínio usando o exemplo de sacolas e maçãs:
+    - O primeiro número será o número de sacolas.
+    - O segundo número será o número de maçãs em cada sacola.
+
+    Estruture sua resposta no seguinte formato:
+    - Uma introdução filosófica sobre multiplicação.
+    - Uma explicação usando os números fornecidos, relacionando com sacolas e maçãs.
+    - Liste as sacolas, mostrando o número de maçãs em cada uma, usando emojis de sacolas e maçãs:
+       - [Emoji de sacola] Sacola 1: [Maçãs representadas por emojis]
+       - [Emoji de sacola] Sacola 2: [Maçãs representadas por emojis]
+       - ...
+    - Mostre o resultado da multiplicação, representado visualmente com os emojis de maçãs.
+    - Finalize com uma frase otimista e motivacional, destacando como a multiplicação é divertida e poderosa.
+
+    Certifique-se de que a explicação seja cativante, lúdica e fácil de entender para crianças.
+  expected_output: >
+    Uma explicação estruturada, seguindo o formato especificado, incluindo os emojis para sacolas e maçãs, e uma frase final motivacional.

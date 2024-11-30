@@ -1,5 +1,0 @@
-tarefa_leitor_pdf:
-  description: >   
-    Carregue o PDF e separe o conteúdo em títulos. Identifique títulos e subtítulos principais.
-  expected_output: >
-   Uma lista de título extraídos do PDF, com os respectivos textos.
