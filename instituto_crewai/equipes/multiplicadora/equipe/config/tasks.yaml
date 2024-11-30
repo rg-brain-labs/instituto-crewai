@@ -7,8 +7,8 @@ gerar_numeros:
 
 multiplicar:
   description: >
-    Usando os dois números fornecidos, crie uma explicação lúdica e filosófica sobre multiplicação. 
-    Explique o conceito de multiplicação como uma maneira mágica de organizar e somar grupos de itens iguais.
+    Usando os dois números fornecidos, crie uma explicação filosófica 
+    sobre multiplicação.     
 
     Depois, ilustre o raciocínio usando o exemplo de sacolas e maçãs:
     - O primeiro número será o número de sacolas.
@@ -22,8 +22,9 @@ multiplicar:
        - [Emoji de sacola] Sacola 2: [Maçãs representadas por emojis]
        - ...
     - Mostre o resultado da multiplicação, representado visualmente com os emojis de maçãs.
-    - Finalize com uma frase otimista e motivacional, destacando como a multiplicação é divertida e poderosa.
+    - Finalize com uma frase otimista e motivacional, destacando como a multiplicação é poderosa.
 
-    Certifique-se de que a explicação seja cativante, lúdica e fácil de entender para crianças.
+    Certifique-se de que a explicação seja cativante e fácil de entender para crianças.
   expected_output: >
-    Uma explicação estruturada, seguindo o formato especificado, incluindo os emojis para sacolas e maçãs, e uma frase final motivacional.
+    Uma explicação estruturada, seguindo o formato especificado, incluindo os emojis para sacolas e 
+    maçãs, e uma frase final motivacional.
