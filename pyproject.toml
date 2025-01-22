@@ -6,13 +6,14 @@ authors = ["rodrigo.goncalves"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.10,<=3.13"
+python = ">=3.10,<3.12"
 pydantic = "^2.9.2"
 streamlit = "^1.38.0"
-crewai = {extras = ["tools"], version = "^0.83.0"}
+crewai = {extras = ["tools"], version = "^0.98.0"}
 pdfplumber = "^0.11.4"
 youtube-transcript-api = "^0.6.2"
 rich = "^13.9.4"
+litellm = "1.57.4"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
@@ -23,6 +24,7 @@ black = "^24.8.0"
 
 [tool.poetry.scripts]
 equipe_multiplicadora = "instituto_crewai.equipes.multiplicadora.multiplicadora_app:main"
+brian_consultor = "instituto_crewai.brian_consultor.brian_consultor_cli:main"
 
 [build-system]
 requires = ["poetry-core"]
