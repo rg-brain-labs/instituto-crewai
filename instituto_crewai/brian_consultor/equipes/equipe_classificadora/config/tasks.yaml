@@ -1,0 +1,17 @@
+classificar_solicitacao:
+  description: >
+    Analise a mensagem fornecida e determine se ela deve ser classificada como 
+    DUVIDA_CONSORCIO ou DUVIDA_OUTRA_COISA. Considere os seguintes critérios:
+    
+      - DUVIDA_CONSORCIO: A mensagem tem relação com consórcios. 
+      - DUVIDA_OUTRA_COISA: A mensagem trata de outro assunto. 
+      
+    Sua resposta deve ser apenas uma das duas opções especificadas.
+
+    <solicitacao>
+    {solicitacao}
+    </solicitacao>
+  expected_output: >
+    DUVIDA_CONSORCIO ou DUVIDA_OUTRA_COISA
+  agent: >
+    classificador_menssagens

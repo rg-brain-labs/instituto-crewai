@@ -1,46 +1,23 @@
 from crewai.flow.flow import Flow, listen, router, start
-from litellm import completion
 from pydantic import BaseModel
+
+from ..equipes.equipe_classificadora.equipe_classificadora import EquipeClassificadora
+from ..equipes.equipe_ajuda.equipe_ajuda import EquipeAjuda
 
 class Classificacao(BaseModel):
     classificacao: str = ""
 
 class ConsultorConsorcioFlow(Flow[Classificacao]):
-
-    model = "gemini/gemini-1.5-flash"
     
     @start()
-    def classificar_solicitacao(self):
-
-        response = completion(
-            model=self.model,
-            messages=[
-                {
-                    "role": "user",
-                    "content": """
-                    Voce recebeu uma solicitação de um cliente e precisa classificar a solicitação, 
-                    identifique se o cliente solicitou algo sobre Consórcio ou alguma outra coisa.
-
-                    Retorne somente uma das seguintes opções: 
-                        - DUVIDA_CONSORCIO
-                        - DUVIDA_OUTRA_COISA
-
-                    Você so precisa classeficar e retornar uma da opções acima.
-
-                    ## Solicitação ##
-                    Gostaria de saber como funciona o Consórcio da empresa XYZ.
-                    """,
-                },
-            ],
-        )
-
-        classificacao = response["choices"][0]["message"]["content"]
-        print(f"A classificação foi: {classificacao}")
+    def classificar_solicitacao(self):       
+        equipe_classificadora = EquipeClassificadora()
+        classificacao_equipe = equipe_classificadora.crew().kickoff(inputs={"solicitacao": "Boa tarde, gostaria de saber sobre como funciona a VSS Poseidon"})
+        classificacao = classificacao_equipe.raw       
         self.state.classificacao = classificacao
 
     @router(classificar_solicitacao)
-    def roteador(self):
-        print(f"roteador deve retornar {self.state.classificacao}")
+    def roteador(self):       
         if self.state.classificacao == "DUVIDA_CONSORCIO":
             return "DUVIDA_CONSORCIO"
         else:
@@ -51,5 +28,7 @@ class ConsultorConsorcioFlow(Flow[Classificacao]):
         return f"O Cliente quer falar sobre Consórcio"
     
     @listen("DUVIDA_OUTRA_COISA")
-    def nao_classificado(self):       
-        return f"O cliente não quer falar sobre consorcio"
+    def nao_classificado(self):  
+        equipe_ajuda = EquipeAjuda(self.state.classificacao)
+        mensagem_ajuda = equipe_ajuda.crew().kickoff()     
+        return mensagem_ajuda.raw

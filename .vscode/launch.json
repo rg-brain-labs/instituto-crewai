@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Brian Consultor CLI",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "instituto_crewai.brian_consultor.brian_consultor_cli",
+            "args": [
+                "--solicitacao",
+                "Sua solicitação de teste aqui"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        }
+    ]
+}

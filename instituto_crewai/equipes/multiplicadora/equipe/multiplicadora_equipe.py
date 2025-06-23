@@ -2,14 +2,14 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 
 from .ferramentas.multiplicacao_tool import MultiplicacaoTool
-from ....utils.llm_models import GEMINI_1_5_PRO
+from ....utils.llm_models import GROQ_LLMA_3_1_70B
 
 @CrewBase
 class EquipeMultiplicadora():
 
     def __init__(self):
         self.multiplicacao_tool = MultiplicacaoTool()
-        self.llm = GEMINI_1_5_PRO
+        self.llm = GROQ_LLMA_3_1_70B
 
     @agent
     def gerador_numeros(self) -> Agent:

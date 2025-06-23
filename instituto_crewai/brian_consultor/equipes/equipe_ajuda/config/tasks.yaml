@@ -1,0 +1,8 @@
+ajuda_sistema:
+  description: >
+    Responda ao usuário explicando que este sistema é voltado para ajudar pessoas interessadas em
+    adquirir uma carta de crédito via consórcio ou para tirar dúvidas relacionadas a consorciados. 
+    Sua mensagem deve ser clara, objetiva e amigável.
+  expected_output: >
+    Uma mensagem clara explicando o propósito do sistema.
+  agent: ajudante
